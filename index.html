@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <head>
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="https://use.typekit.net/yuq8kny.css">
+    </head>
+    <body>
+        <div class="header"></div>
+        <div class="title">
+            <span class="title-name">Clix</span>
+            <span class="title-motto">Live Better</span>
+        </div>
+        <div class="app-blurb center">
+            <span class="app-blurb-text">
+                Clix is a mobile app that will be able to suggest personalized itineraries and activities based on your interests, money-on-hand, and habits. Allowing you to experience the best of what the city has to offer on any budget.
+            </span>
+        </div>
+        <div class="app-detail center">
+            <span class="app-detail-title">PLACELIST TECHNOLOGY</span>
+            <br>
+            <p class="app-blurb-text">
+                Users will be able to share these experienced iteneraries both long and short as a Placelist™.
+
+                Users on our social network will be able to:
+
+                See Placelists™ from friends, like-minded individuals, celebrities, and more.
+                
+                Upvote and Downvote suggested Placelists™ so that recommendations become better after every use.
+    
+                Plan optimal itineraries and activites for a group of friends with our group recommendation feature.
+            </p>
+        </div>
+        <div class="app-graphic center">
+            <img src="./clix-iphone.png" />
+        </div>
+        <div class="email-blurb center">
+            <p class="app-blurb-text">
+                Stop living vicariously and live better!
+
+                Subscribe to our mailing list to get product updates and access to our Beta App in Q1 of 2019.
+            </p>
+        </div>
+        <div class="email-input center">
+            <input id="email" name="email" type="email" onkeypress="submitOnEnter(this, event);">
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+        <script type="text/javascript">
+            function submitOnEnter(inputElement, event) {
+                if (event.keyCode == 13) {
+                    // inputElement.form.submit();
+                    db.collection("users").add({
+                        email: document.getElementById("email").value
+                    })
+                }
+            }
+            firebase.initializeApp({
+                apiKey:  'AIzaSyBdB7hioW250uM4lunAVrT7kyNB0Tie6kE',
+                authDomain: 'resonator-40f71.firebaseapp.com',
+                projectId: 'resonator-40f71'
+              });
+
+              // Initialize Cloud Firestore through Firebase
+              var db = firebase.firestore();
+    
+              // Disable deprecated features
+              db.settings({
+                timestampsInSnapshots: true
+              });
+        </script>
+    </body>
+</html>
