@@ -50,7 +50,12 @@
             >
         </div>
         <div class="left email-button">
-            <div id="email-subscribe" class="email-button-el center bordered" onclick="submitOnEnter(this, event)">
+            <div
+                id="email-subscribe"
+                class="email-button-el center bordered"
+                onclick="submitOnEnter(this, event)"
+                ontouchstart="submitOnEnter(this, event)"
+            >
                 Subscribe
             </div>
         </div>
@@ -66,7 +71,6 @@
                     db.collection("users").add({
                         email: document.getElementById("email").value
                     }).then(() => {
-                        document.getElementById("email").value = "Success!";
                         document.getElementById("email-subscribe").innerHTML = "Subscribed!";
                         document.getElementById("email-subscribe").classList.add("subscribed");
                     })
