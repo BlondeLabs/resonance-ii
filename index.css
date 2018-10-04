@@ -1,19 +1,33 @@
+@font-face {
+  font-family: "tsu";
+  src: url(./fonts/tsu-bold.otf) format("opentype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "tsu";
+  src: url(./fonts/tsu-regular.otf) format("opentype");
+  font-weight: 200;
+}
+
 body {
-  font-family: 'all-round-gothic';
+  font-family: 'tsu';
+  font-size: 16pt;
+  font-weight: 200;
   background: black;
   color: white;
   display: grid;
   grid-gap: 50px;
   padding: 0 50px 50px 50px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 50px auto minmax(40vh, auto) 40vh auto auto auto;
-  grid-template-areas: "header header"
-                       "title title"
-                       "app-graphic app-blurb"
-                       "app-graphic app-blurb"
-                       "app-detail app-detail"
-                       "email-blurb email-input"
-                       "email-blurb email-input";
+  grid-template-areas: "header header header"
+                       "title title title"
+                       "app-graphic app-blurb app-blurb"
+                       "app-graphic app-blurb app-blurb"
+                       "app-detail app-detail app-detail"
+                       "email-blurb email-input email-button"
+                       "email-blurb email-input email-button";
 }
 
 input {
@@ -21,10 +35,6 @@ input {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
-  background: black;
-  border: 1px solid white;
-  line-height: 50px;
-  padding: 5px;
 }
 
 .header {
@@ -46,6 +56,7 @@ input {
 
 .title-motto {
   font-size: 5vh;
+  border-top: 0.5px solid white;
 }
 
 .app-blurb {
@@ -55,7 +66,10 @@ input {
 .app-blurb-text {
   max-width: 50vw;
   line-height: 50px;
-  font-size: 16pt;
+}
+
+.app-blurb-list {
+  text-align: left;
 }
 
 .app-graphic {
@@ -65,7 +79,7 @@ input {
 
 .app-graphic > img {
   max-height: 100%;
-  max-width: 100%;
+  max-width: 75%;
 }
 
 .app-detail {
@@ -82,10 +96,54 @@ input {
 .email-blurb {
   grid-area: email-blurb;
   padding: 5px;
+  min-width: 40vw;
 }
 
 .email-input {
   grid-area: email-input;
+}
+
+.email-input > input {
+  background: black;
+  line-height: 50px;
+  padding: 5px 5px 5px 10px;
+  width: 100%;
+}
+
+.email-button {
+  grid-area: email-button;
+}
+
+.email-button-el {
+  padding: 5px 10px;
+  line-height: 50px;
+  transition: all 0.3s ease-in;
+}
+
+.email-button-el:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.subscribed {
+  color: black;
+  background: white;
+  border-color: black;
+}
+
+.footer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  grid-column: span 3;
+}
+
+.footer > img {
+  max-height: 100%;
+  max-width: 100%;
+  filter: opacity(0.5);
 }
 
 /* Responsive */
@@ -93,17 +151,26 @@ input {
   body {
     padding: 0 25px 25px 25px;
     grid-gap: 25px;
-    grid-template-areas: "header header"
-                         "title title"
-                         "app-blurb app-blurb"
-                         "app-graphic app-graphic"
-                         "app-detail app-detail"
-                         "email-blurb email-blurb"
-                         "email-input email-input";
+    grid-template-areas: "header header header"
+                         "title title title"
+                         "app-blurb app-blurb app-blurb"
+                         "app-graphic app-graphic app-graphic"
+                         "app-detail app-detail app-detail"
+                         "email-blurb email-blurb email-blurb"
+                         "email-input email-input email-input"
+                         "email-button email-button email-button";
   }
 
   .title {
     margin-bottom: 0;
+  }
+
+  .footer {
+    justify-content: center;
+  }
+
+  .email-button {
+    justify-content: center !important;
   }
 }
 
@@ -114,6 +181,22 @@ input {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.left {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-align: left;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.bordered {
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
 * {
