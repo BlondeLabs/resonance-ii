@@ -11,14 +11,14 @@
 }
 
 body {
-  font-family: 'tsu';
+  font-family: 'tsu', 'all-round-gothic';
   font-size: 16pt;
   font-weight: 200;
   background: black;
   color: white;
   display: grid;
   grid-gap: 50px;
-  padding: 0 50px 50px 50px;
+  padding: 25px 50px 50px 50px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 50px auto minmax(40vh, auto) 40vh auto auto auto;
   grid-template-areas: "header header header"
@@ -52,15 +52,23 @@ input {
 .title-name {
   font-weight: 700;
   font-size: 10vh;
+  padding-bottom: 5px;
 }
 
 .title-motto {
   font-size: 5vh;
   border-top: 0.5px solid white;
+  padding-top: 5px;
 }
 
 .app-blurb {
   grid-area: app-blurb;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding-top: 150px;
 }
 
 .app-blurb-text {
@@ -150,8 +158,9 @@ input {
 /* Responsive */
 @media only screen and (max-width: 600px) {
   body {
-    padding: 0 25px 25px 25px;
-    grid-gap: 25px;
+    padding: 10px 5px 25px 5px;
+    grid-gap: 10px;
+    font-size: 14pt;
     grid-template-areas: "header header header"
                          "title title title"
                          "app-blurb app-blurb app-blurb"
@@ -172,6 +181,14 @@ input {
 
   .email-button {
     justify-content: center !important;
+  }
+
+  .app-blurb-text {
+    max-width: none;
+  }
+
+  .app-blurb {
+    padding-top: 15px;
   }
 }
 
