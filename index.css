@@ -138,6 +138,7 @@ input {
   height: 50px;
   width: 100%;
   grid-column: span 3;
+  padding-left: 5px;
 }
 
 .footer > img {
