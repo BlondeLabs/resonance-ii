@@ -1,11 +1,5 @@
 @font-face {
   font-family: "tsu";
-  src: url(./fonts/tsu-bold.otf) format("opentype");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "tsu";
   src: url(./fonts/tsu-regular.otf) format("opentype");
   font-weight: 200;
 }
@@ -19,10 +13,9 @@ body {
   display: grid;
   grid-gap: 50px;
   padding: 25px 50px 50px 50px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 50px auto minmax(40vh, auto) 40vh auto auto auto;
-  grid-template-areas: "header header header"
-                       "title title title"
+  grid-template-columns: minmax(40vw, 1fr) 1fr 1fr;
+  grid-template-rows: auto auto 40vh auto auto auto;
+  grid-template-areas: "title title title"
                        "app-graphic app-blurb app-blurb"
                        "app-graphic app-blurb app-blurb"
                        "app-detail app-detail app-detail"
@@ -50,15 +43,14 @@ input {
 }
 
 .title-name {
-  font-weight: 700;
-  font-size: 10vh;
-  padding-bottom: 5px;
+  font-size: 8vh;
+  line-height: 9vh;
 }
 
 .title-motto {
-  font-size: 5vh;
+  font-size: 3vh;
   border-top: 0.5px solid white;
-  padding-top: 5px;
+  padding: 10px 5px;
 }
 
 .app-blurb {
@@ -78,33 +70,39 @@ input {
 
 .app-blurb-list {
   text-align: left;
+  padding: 0 25px;
 }
 
 .app-graphic {
   grid-area: app-graphic;
-  padding: 15px;
 }
 
 .app-graphic > img {
   max-height: 100%;
-  max-width: 75%;
 }
 
 .app-detail {
   grid-area: app-detail;
-  padding: 5px;
   flex-direction: column;
 }
 
+.app-detail-text {
+  max-width: 50vw;
+  line-height: 50px;
+}
+
 .app-detail-title {
-  font-weight: 700;
-  font-size: 5vh;
+  font-size: 28pt;
 }
 
 .email-blurb {
   grid-area: email-blurb;
-  padding: 5px;
   min-width: 40vw;
+}
+
+.email-blurb-text {
+  max-width: 50vw;
+  line-height: 50px;
 }
 
 .email-input {
@@ -124,8 +122,9 @@ input {
 
 .email-button-el {
   padding: 5px 10px;
-  line-height: 50px;
+  line-height: 40px;
   transition: all 0.3s ease-in;
+  border: 1px solid white;
 }
 
 .email-button-el:hover {
@@ -146,25 +145,24 @@ input {
   height: 50px;
   width: 100%;
   grid-column: span 3;
-  padding-left: 5px;
+  padding: 7px 5px;
 }
 
 .footer > img {
   max-height: 100%;
   max-width: 100%;
-  filter: opacity(0.5);
+  filter: opacity(0.75);
 }
 
 /* Responsive */
 @media only screen and (max-width: 600px) {
   body {
-    padding: 10px 5px 25px 5px;
+    padding: 10px 5px 0px 5px;
     grid-gap: 10px;
-    font-size: 14pt;
-    grid-template-areas: "header header header"
-                         "title title title"
-                         "app-blurb app-blurb app-blurb"
-                         "app-graphic app-graphic app-graphic"
+    font-size: 12pt;
+    grid-template-areas: "title title title"
+                         "app-graphic app-blurb app-blurb"
+                         "app-graphic app-blurb app-blurb"
                          "app-detail app-detail app-detail"
                          "email-blurb email-blurb email-blurb"
                          "email-input email-input email-input"
@@ -179,16 +177,40 @@ input {
     justify-content: center;
   }
 
+  .email-input > input {
+    width: 75%;
+  }
+
   .email-button {
     justify-content: center !important;
   }
 
+  .email-button-el {
+    width: 40%;
+  }
+
   .app-blurb-text {
     max-width: none;
+    line-height: inherit;
+    text-align: left;
+  }
+
+  .app-detail-text {
+    max-width: none;
+    line-height: inherit;
+  }
+
+  .app-detail-title {
+    font-size: 14pt;
+  }
+  .email-blurb-text {
+    max-width: none;
+    line-height: inherit;
   }
 
   .app-blurb {
-    padding-top: 15px;
+    padding-top: 0;
+    justify-content: center;
   }
 }
 
@@ -206,10 +228,6 @@ input {
   justify-content: start;
   align-items: center;
   text-align: left;
-}
-
-.bold {
-  font-weight: 700;
 }
 
 .bordered {
