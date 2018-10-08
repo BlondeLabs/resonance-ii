@@ -5,58 +5,57 @@
     <head>
         <link rel="stylesheet" href="index.css" />
         <link rel="stylesheet" href="https://use.typekit.net/yuq8kny.css">
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"> 
     </head>
     <body>
-        <div class="title center">
+        <div class="title">
             <span class="title-name">Clix</span>
             <span class="title-motto">Live Better</span>
         </div>
-        <div class="app-blurb">
-            <span class="app-blurb-text">
+        <div class="demo">
+            <div class="demo-graphic">
+                <img src="./clix-iphone.png" />
+            </div>
+            <div class="demo-blurb">
                 Clix is a mobile app that will be able to suggest personalized itineraries and activities based on your interests, money-on-hand, and habits. Allowing you to experience the best of what the city has to offer on any budget.
-            </span>
-        </div>
-        <div class="app-detail center">
-            <span class="app-detail-title">SAY HELLO TO PLACELISTS™</span>
-            <br>
-            <div class="app-detail-text">
-                <p>Users will be able to share these experienced iteneraries both long and short as a Placelist™.</p>
-                <p>Users on our social network will be able to:</p>
-                <div class="app-blurb-list">
-                    <p>See Placelists™ from friends, like-minded individuals, celebrities, and more.</p>
-                    <p>Upvote and Downvote suggested Placelists™ so that recommendations become better after every use.</p>
-                    <p>Plan optimal itineraries and activites for a group of friends with our group recommendation feature.</p>
-                </div>
             </div>
         </div>
-        <div class="app-graphic center">
-            <img src="./clix-iphone.png" />
+        <div class="placelist">
+            <h2>SAY HELLO TO PLACELISTS™</h2>
+            <p>Users will be able to share these experienced iteneraries both long and short as a Placelist™.</p>
+            <p>Users on our social network will be able to:</p>
+            <div class="placelist-list">
+                <p>See Placelists™ from friends, like-minded individuals, celebrities, and more.</p>
+                <p>Upvote and Downvote suggested Placelists™ so that recommendations become better after every use.</p>
+                <p>Plan optimal itineraries and activites for a group of friends with our group recommendation feature.</p>
+            </div>
         </div>
-        <div class="email-blurb center">
-            <p class="email-blurb-text">
+        <div class="subscribe">
+            <p class="subscribe-blurb">
                 <span>Stop living vicariously and live better!</span>
                 <br>
                 Subscribe to our mailing list to get product updates and access to our Beta App in Q1 of 2019.
             </p>
-        </div>
-        <div class="email-input center">
-            <input
-                id="email"
-                class="bordered"
-                name="email"
-                type="email"
-                onkeypress="submitOnEnter(this, event);"
-                placeholder="betauser@gmail.com"
-            >
-        </div>
-        <div class="left email-button">
-            <div
-                id="email-subscribe"
-                class="email-button-el center"
-                onclick="submitOnEnter(this, event)"
-                ontouchstart="submitOnEnter(this, event)"
-            >
-                Subscribe
+            <div class="subscribe-actions">
+                <div class="subscribe-input">
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        onkeypress="submitOnEnter(this, event);"
+                        placeholder="betauser@gmail.com"
+                    >
+                </div>
+                <div class="subscribe-button-container">
+                    <div
+                        id="email-subscribe"
+                        class="subscribe-button"
+                        onclick="submitOnEnter(this, event)"
+                        ontouchstart="submitOnEnter(this, event)"
+                    >
+                        Subscribe
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer">
@@ -67,7 +66,6 @@
         <script type="text/javascript">
             function submitOnEnter(inputElement, event) {
                 if (event.keyCode === 13 || event.type === 'click') {
-                    // inputElement.form.submit();
                     db.collection("users").add({
                         email: document.getElementById("email").value
                     }).then(() => {

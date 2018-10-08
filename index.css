@@ -1,26 +1,22 @@
-@font-face {
-  font-family: "tsu";
-  src: url(./fonts/tsu-regular.otf) format("opentype");
-  font-weight: 200;
+/*
+
+2018© BlondeLabs - Lander Styles
+
+*/
+
+/* BASE */
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'tsu', 'all-round-gothic';
+  font-family: 'Comfortaa';
   font-size: 16pt;
   font-weight: 200;
   background: black;
   color: white;
-  display: grid;
-  grid-gap: 50px;
-  padding: 25px 50px 50px 50px;
-  grid-template-columns: minmax(40vw, 1fr) 1fr 1fr;
-  grid-template-rows: auto auto 40vh auto auto auto;
-  grid-template-areas: "title title title"
-                       "app-graphic app-blurb app-blurb"
-                       "app-graphic app-blurb app-blurb"
-                       "app-detail app-detail app-detail"
-                       "email-blurb email-input email-button"
-                       "email-blurb email-input email-button";
+  line-height: 50px;
 }
 
 input {
@@ -30,104 +26,107 @@ input {
   font-weight: inherit;
 }
 
-.header {
-  grid-area: header;
-}
-
+/* TITLE */
 .title {
-  grid-area: title;
+  height: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
+  justify-content: center;
 }
 
 .title-name {
   font-size: 8vh;
   line-height: 9vh;
+  font-weight: 700;
 }
 
 .title-motto {
   font-size: 3vh;
-  border-top: 0.5px solid white;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.5);
   padding: 10px 5px;
 }
 
-.app-blurb {
-  grid-area: app-blurb;
+/* DEMO */
+.demo {
   display: flex;
-  justify-content: start;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-  padding-top: 150px;
+  flex-direction: row;
+  align-items: start;
+  height: auto;
 }
 
-.app-blurb-text {
-  max-width: 50vw;
-  line-height: 50px;
+.demo-graphic {
+  flex: 1;
 }
 
-.app-blurb-list {
-  text-align: left;
-  padding: 0 25px;
-}
-
-.app-graphic {
-  grid-area: app-graphic;
-}
-
-.app-graphic > img {
+.demo-graphic > img {
   max-height: 100%;
+  max-width: 100%;
 }
 
-.app-detail {
-  grid-area: app-detail;
+.demo-blurb {
+  flex: 1;
+  text-align: left;
+  padding-top: 60px;
+}
+
+/* PLACELIST */
+.placelist {
+  text-align: center;
+  display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.app-detail-text {
-  max-width: 50vw;
-  line-height: 50px;
+.placelist-list {
+  text-align: left;
+  padding: 0 50px;
 }
 
-.app-detail-title {
-  font-size: 28pt;
+/* SUBSCRIBE */
+.subscribe {
+  display: flex;
+  flex-direction: row;
+  height: auto;
 }
 
-.email-blurb {
-  grid-area: email-blurb;
-  min-width: 40vw;
+.subscribe-blurb {
+  flex: 1;
+  text-align: center;
 }
 
-.email-blurb-text {
-  max-width: 50vw;
-  line-height: 50px;
+.subscribe-actions {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-.email-input {
-  grid-area: email-input;
+.subscribe-input {
+  margin: 10px;
 }
 
-.email-input > input {
+.subscribe-input > input {
   background: black;
   line-height: 50px;
   padding: 5px 5px 5px 10px;
-  width: 100%;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
-.email-button {
-  grid-area: email-button;
+.subscribe-button-container {
+  margin: 10px;
 }
 
-.email-button-el {
+.subscribe-button {
   padding: 5px 10px;
-  line-height: 40px;
+  line-height: 50px;
   transition: all 0.3s ease-in;
   border: 1px solid white;
 }
 
-.email-button-el:hover {
+.subscribe-button:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -138,13 +137,13 @@ input {
   border-color: black;
 }
 
+/* FOOTER */
 .footer {
   display: flex;
   justify-content: start;
   align-items: center;
   height: 50px;
   width: 100%;
-  grid-column: span 3;
   padding: 7px 5px;
 }
 
@@ -154,87 +153,34 @@ input {
   filter: opacity(0.75);
 }
 
-/* Responsive */
+/* RESPONSE I */
 @media only screen and (max-width: 600px) {
   body {
-    padding: 10px 5px 0px 5px;
-    grid-gap: 10px;
     font-size: 12pt;
-    grid-template-areas: "title title title"
-                         "app-graphic app-blurb app-blurb"
-                         "app-graphic app-blurb app-blurb"
-                         "app-detail app-detail app-detail"
-                         "email-blurb email-blurb email-blurb"
-                         "email-input email-input email-input"
-                         "email-button email-button email-button";
+    line-height: unset;
   }
 
-  .title {
-    margin-bottom: 0;
+  h2 {
+    font-size: 15pt;
+  }
+
+  .demo {
+    align-items: center;
+  }
+
+  .demo-blurb {
+    padding-top: 0;
+  }
+
+  .subscribe-actions {
+    flex-direction: column;
+  }
+
+  .subscribe {
+    flex-direction: column;
   }
 
   .footer {
     justify-content: center;
   }
-
-  .email-input > input {
-    width: 75%;
-  }
-
-  .email-button {
-    justify-content: center !important;
-  }
-
-  .email-button-el {
-    width: 40%;
-  }
-
-  .app-blurb-text {
-    max-width: none;
-    line-height: inherit;
-    text-align: left;
-  }
-
-  .app-detail-text {
-    max-width: none;
-    line-height: inherit;
-  }
-
-  .app-detail-title {
-    font-size: 14pt;
-  }
-  .email-blurb-text {
-    max-width: none;
-    line-height: inherit;
-  }
-
-  .app-blurb {
-    padding-top: 0;
-    justify-content: center;
-  }
-}
-
-/* Helpers */
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.left {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  text-align: left;
-}
-
-.bordered {
-  border: 1px solid white;
-  border-radius: 5px;
-}
-
-* {
-  box-sizing: border-box;
 }
